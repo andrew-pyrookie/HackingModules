@@ -13,7 +13,7 @@ server_socket.bind((HOST, PORT))
 #listen for incoming connections
 server_socket.listen()
 
-print(f"Server is listening on {HOST}:{PORT}")
+# print(f"Server is listening on {HOST}:{PORT}")
 
 
 #Accept incoming connections
@@ -22,10 +22,13 @@ print("Connected with", client_address)
 
 #Receive data from the client
 while True:
-    data = client_socket.recv(1024).decode('utf-8')
-    if not data :
+    message = input("You: ")
+    client_socket.sendall(message.encode('utf-8'))
+    if message.lower() == "exit":
         break
-    print(f"Received: {data}")
+    data = client_socket.recv(1024).decode('utf-8')
+    print(f"Sender: {data}")
+    
     
 
 

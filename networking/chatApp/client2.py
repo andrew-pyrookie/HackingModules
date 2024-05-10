@@ -2,7 +2,7 @@ import socket
 
 # define address and port 
 HOST = '127.0.0.1'
-PORT = 8000 
+PORT = 8001 
 
 #create a socket object
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -10,9 +10,6 @@ client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 #connect the server
 client_socket.connect((HOST,PORT))
 print(f"Connected with {HOST}:{PORT}")
-
-#choosing the client address
-receiver = input("Receivers Port Number : ")
 
 #send data to the server
 while True:
